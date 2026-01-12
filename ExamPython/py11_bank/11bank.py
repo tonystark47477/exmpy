@@ -1,0 +1,49 @@
+class BankAccount:
+    def __init__(self, acc_no, name, acc_type, balance):
+        self.account_number = acc_no
+        self.name = name
+        self.account_type = acc_type
+        self.balance = balance
+
+    def deposit(self, amount):
+        if amount <= 0:
+            print("Deposit amount must be positive!")
+        else:
+            self.balance += amount
+            print("Deposited:", amount)
+            print("Updated Balance:", self.balance)
+
+    def withdraw(self, amount):
+        if amount <= 0:
+            print("Withdrawal amount must be positive!")
+        elif amount > self.balance:
+            print("Insufficient balance")
+        else:
+            self.balance -= amount
+            print("Withdrawn:", amount) 
+            print("Updated Balance:", self.balance)
+
+    def display(self):
+        print("\nAccount Details")
+        print("Account Number:", self.account_number)
+        print("Account Holder Name:", self.name)
+        print("Account Type:", self.account_type)
+        print("Account Balance:", self.balance)
+
+
+# -------- MAIN PROGRAM --------
+
+acc_no = int(input("Enter account number: "))
+name = input("Enter account holder name: ")
+acc_type = input("Enter account type (savings/current): ")
+balance = int(input("Enter initial balance: "))
+
+account = BankAccount(acc_no, name, acc_type, balance)
+
+account.display()
+
+deposit_amount = int(input("\nEnter the amount to deposit: "))
+account.deposit(deposit_amount)
+
+withdraw_amount = int(input("\nEnter the amount to withdraw: "))
+account.withdraw(withdraw_amount)
