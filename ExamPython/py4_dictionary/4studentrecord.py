@@ -1,22 +1,15 @@
-students = {}
-
-n = int(input("Enter number of students: "))
-
-for i in range(n):
-    name = input("Enter student name: ")
-    marks = []
-
-    for j in range(3):
-        mark = int(input("Enter mark: "))
-        marks.append(mark)
-
-    students[name] = marks
+students = {
+    "Arun": [85, 90, 78],
+    "Gowri": [72, 88, 91],
+    "Vishnu": [95, 80, 85]
+}
 
 for name, marks in students.items():
     total = sum(marks)
-    average = total / 3
+    average = sum(marks) / len(marks)
 
     print("Student:", name)
     print("Marks:", marks)
-    print("Total:", total)
-    print("Average:", average)
+    print("Total Marks:", total)
+    print("Average Marks:", round(average, 2))
+    print("*" * 20)
